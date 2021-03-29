@@ -21,12 +21,7 @@ You can download the corpus [here](https://dspace.mit.edu/handle/1721.1/100054?s
 ```
 @inproceedings{otake-etal-2020-modeling,
     title = "Modeling Event Salience in Narratives via Barthes{'} Cardinal Functions",
-    author = "Otake, Takaki  and
-      Yokoi, Sho  and
-      Inoue, Naoya  and
-      Takahashi, Ryo  and
-      Kuribayashi, Tatsuki  and
-      Inui, Kentaro",
+    author = "Otake, Takaki and Yokoi, Sho and Inoue, Naoya and Takahashi, Ryo and Kuribayashi, Tatsuki and Inui, Kentaro",
     booktitle = "Proceedings of the 28th International Conference on Computational Linguistics",
     month = dec,
     year = "2020",
