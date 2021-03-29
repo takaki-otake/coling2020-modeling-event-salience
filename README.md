@@ -1,5 +1,5 @@
 # coling2020-modeling-event-salience
-Experiments codes for [[Otake+'20] Modeling Event Salience in Narratives via Barthes’ Cardinal Functions (COLING 2020) https://www.aclweb.org/anthology/2020.coling-main.160/].
+Experiments codes for [[Otake+'20] Modeling Event Salience in Narratives via Barthes’ Cardinal Functions (COLING 2020)]( https://www.aclweb.org/anthology/2020.coling-main.160/).
 - ProppLearner: https://academic.oup.com/dsh/article/32/2/284/2957394
 # run experiments
 ## Preprocess PtoppLearner Corpus
