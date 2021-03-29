@@ -18,4 +18,22 @@ You can download the corpus [here](https://dspace.mit.edu/handle/1721.1/100054?s
 `python src/run_sentence_anonymization_model.py --event_rem_method VA -model gpt2 -gpu 1 --normalization normalize --contextlen 1024 --input_original /path-to-dir/tsv_format_v1_modified/ --input_anonimized /path-to-dir/verb_anonymization_sub_tense_sensitive/ -output /path-to-dir/`
 
 ## Citation
-> COLING
+```
+@inproceedings{otake-etal-2020-modeling,
+    title = "Modeling Event Salience in Narratives via Barthes{'} Cardinal Functions",
+    author = "Otake, Takaki  and
+      Yokoi, Sho  and
+      Inoue, Naoya  and
+      Takahashi, Ryo  and
+      Kuribayashi, Tatsuki  and
+      Inui, Kentaro",
+    booktitle = "Proceedings of the 28th International Conference on Computational Linguistics",
+    month = dec,
+    year = "2020",
+    address = "Barcelona, Spain (Online)",
+    publisher = "International Committee on Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.coling-main.160",
+    doi = "10.18653/v1/2020.coling-main.160",
+    pages = "1784--1794",
+}
+```
