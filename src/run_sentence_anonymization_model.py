@@ -139,6 +139,7 @@ def check_file_alignment(file_path_list_1, file_path_list_2):
 	for file_path_1, file_path_2 in zip(file_path_list_1, file_path_list_2):
 		if os.path.basename(file_path_1) == os.path.basename(file_path_1):
 			#logger.info("{} is aligned {}".format(file_path_1, file_path_2))
+			pass
 		else:
 			logger.info("{} is misaligned {}".format(file_path_1, file_path_2))
 			sys.exit(1)
