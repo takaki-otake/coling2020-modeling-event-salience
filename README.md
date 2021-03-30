@@ -9,13 +9,13 @@ You can download the corpus [here](https://dspace.mit.edu/handle/1721.1/100054?s
 (1) `python src/preprocess_propplearner_with_pred_and_args.py  --input path-to-dir  --output path-to-dir`
 > `--input`: path to the directory which contains original .sty files in the corpus.
 
-    - (2) for Verb Anonymization (VA)
-    - `python src/preprocess_propplearner_with_verbs.py --input path-to-dir --output path-to-dir`
-    - > `--input`: path to the output directory in (1)
+(2) for Verb Anonymization (VA)
+- `python src/preprocess_propplearner_with_verbs.py --input path-to-dir --output path-to-dir`
+> `--input`: path to the output directory in (1)
  
-- (3) for Predicate and Argument Anonymization (PAA)
-    - `python src/preprocess_propplearner.py --input path-to-dir --output path-to-dir`
-    - > `--input`: path to the directory which contains original .sty files in the corpus.
+(3) for Predicate and Argument Anonymization (PAA)
+- `python src/preprocess_propplearner.py --input path-to-dir --output path-to-dir`
+> `--input`: path to the directory which contains original .sty files in the corpus.
 
 
 ## Reproducing experiments
