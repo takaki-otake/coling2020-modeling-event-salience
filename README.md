@@ -3,7 +3,7 @@ Experiments codes for [[Otake+'20] Modeling Event Salience in Narratives via Bar
 
 ## Requirements
 We recommend preparing a new virtual environment (python>=3.6).
-- spacy==2.0.18
+- spacy==2.0.18 (for preprocessing)
 - torch==1.3.1
 - transformers==2.2.2
 
