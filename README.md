@@ -1,6 +1,12 @@
 # coling2020-modeling-event-salience
 Experiments codes for [[Otake+'20] Modeling Event Salience in Narratives via Barthes’ Cardinal Functions (COLING 2020)]( https://www.aclweb.org/anthology/2020.coling-main.160/).
 
+## Requirements
+We recommend preparing a new virtual environment (python>=3.6).
+- spacy==2.0.18
+- torch==1.3.1
+- transformers==2.2.2
+
 ## Preparing data
 We used [the ProppLearner corpus](https://academic.oup.com/dsh/article/32/2/284/2957394).
 You can download the corpus [here](https://dspace.mit.edu/handle/1721.1/100054?show=full).
