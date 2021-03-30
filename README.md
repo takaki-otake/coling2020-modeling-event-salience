@@ -7,24 +7,12 @@ You can download the corpus [here](https://dspace.mit.edu/handle/1721.1/100054?s
 
 ### Preprocessing the ProppLearner corpus
 - ```python src/preprocess_propplearner_with_pred_and_args.py  --input path-to-dir  --output path-to-dir```
+    - > //.. 
 - for Verb Anonymization (VA)
     - `python src/preprocess_propplearner_with_verbs.py --input path-to-dir --output path-to-dir`
 - for Predicate and Argument Anonymization (PAA)
     - `python src/preprocess_propplearner.py --input path-to-dir --output path-to-dir`
 
-### Preprocessing the ProppLearner corpus
-```
-$ python src/preprocess_propplearner_with_pred_and_args.py 
-    --input path-to-dir # path to the directory which contains original .sty files in the corpus
-    --output path-to-dir
-
-# for Verb Anonymization (VA)
-$ python src/preprocess_propplearner_with_verbs.py 
-    --input path-to-dir
-    --output path-to-dir
-- for Predicate and Argument Anonymization (PAA)
-    - python src/preprocess_propplearner.py --input path-to-dir --output path-to-dir
-```
 
 ## Reproducing experiments
 - Sentence Deletion (SD)
@@ -34,7 +22,7 @@ $ python src/preprocess_propplearner_with_verbs.py
     - `python src/run_sentence_anonymization_model.py --event_rem_method VA -model gpt2 -gpu 0 --normalization normalize --contextlen 1024 --input_original path-to-dir --input_anonimized path-to-dir -output path-to-dir`
 
 - Predicate and Arguments Anonymization (PAA)
-    - `python src/run_sentence_anonymization_model.py --event_rem_method PASA -model gpt2 -gpu 0 --normalization normalize --contextlen 1024 --input_original path-to-dir --input_anonimized path-to-dir -output path-to-dir`
+    - `python src/run_sentence_anonymization_model.py --event_rem_method PAA -model gpt2 -gpu 0 --normalization normalize --contextlen 1024 --input_original path-to-dir --input_anonimized path-to-dir -output path-to-dir`
 
 ### Using fine-tuned GPT-2
 For all proposed method (SD, VA, PAA), you can use fine-tuned GPT-2 by specifying the path for `-model` argument.
