@@ -123,7 +123,7 @@ def compute_prob_for_rest_of_story(model, device, indexed_tokens, ith, max_conte
 def check_file_alignment(file_path_list_1, file_path_list_2):
 	for file_path_1, file_path_2 in zip(file_path_list_1, file_path_list_2):
 		if os.path.basename(file_path_1) == os.path.basename(file_path_1):
-			logger.info("{} is aligned {}".format(file_path_1, file_path_2))
+			#logger.info("{} is aligned {}".format(file_path_1, file_path_2))
 		else:
 			logger.info("{} is misaligned {}".format(file_path_1, file_path_2))
 			sys.exit(1)

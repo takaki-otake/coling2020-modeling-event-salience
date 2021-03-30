@@ -76,7 +76,7 @@ def compute_prob_for_rest_of_story(model, device, indexed_tokens_original, index
 	# include target sentence
 	input_tensor_w_sk = torch.tensor(context_before + indexed_tokens_original[ith - 1] + context_after).unsqueeze(0)
 
-	if method == "VA" or method == "PASA":
+	if method == "VA" or method == "PAA":
 		# target sentence with anonimized events
 		input_tensor_wo_sk = torch.tensor(context_before + indexed_tokens_anonimized[ith - 1] + context_after).unsqueeze(0)
 	elif method == "SD":
@@ -138,7 +138,7 @@ def compute_prob_for_rest_of_story(model, device, indexed_tokens_original, index
 def check_file_alignment(file_path_list_1, file_path_list_2):
 	for file_path_1, file_path_2 in zip(file_path_list_1, file_path_list_2):
 		if os.path.basename(file_path_1) == os.path.basename(file_path_1):
-			logger.info("{} is aligned {}".format(file_path_1, file_path_2))
+			#logger.info("{} is aligned {}".format(file_path_1, file_path_2))
 		else:
 			logger.info("{} is misaligned {}".format(file_path_1, file_path_2))
 			sys.exit(1)
@@ -160,7 +160,7 @@ def main(args):
 	#check file pair alignment
 	check_file_alignment(original_file_path_list, anonimized_file_path_list)
 
-	if args.event_rem_method == "VA" or args.event_rem_method == "PASA":
+	if args.event_rem_method == "VA" or args.event_rem_method == "PAA":
 		new_dir_path = os.path.normpath(args.output) + "/" + str(dt_now).replace(" ", "-") + "_" + args.event_rem_method + "_" + os.path.basename(args.model) + "_" + args.input_original.split("/")[-2] + "_" + args.input_anonimized.split("/")[-2] + "_" + args.normalization + "_main_bug_modified_fix_seed_context_eot"
 		os.makedirs(new_dir_path)
 
