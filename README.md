@@ -7,20 +7,19 @@ You can download the corpus [here](https://dspace.mit.edu/handle/1721.1/100054?s
 
 ### Preprocessing the ProppLearner corpus
 (1) `$ python src/preprocess_propplearner_with_pred_and_args.py  --input path-to-data-dir-original  --output path-to-data-dir-processed`
-> `--input`: path to the directory which contains original .sty files in the corpus.
+> `path-to-data-dir-original`: path to the directory which contains original .sty files in the corpus.
 
 (2) for Verb Anonymization (VA)
 - `$ python src/preprocess_propplearner_with_verbs.py --input path-to-data-dir-processed --output path-to-data-dir-VA`
-> `--input`: path to the output directory in (1)
  
 (3) for Predicate and Argument Anonymization (PAA)
 - `$ python src/preprocess_propplearner.py --input path-to-data-dir-original --output path-to-data-dir-PAA`
-> `--input`: path to the directory which contains original .sty files in the corpus.
 
 
 ## Reproducing experiments
 - Sentence Deletion (SD)
     - `python src/run_sentence_deletion_model.py --event_rem_method SD --model gpt2 --gpu 0 --normalization normalize --contextlen 1024 --input path-to-data-dir-processed --output path-to-results-dir`
+    - > `--gpu`: the number of gpu you use. `-1` for CPU.
 
 - Verb Anonymization (VA)
     - `python src/run_sentence_anonymization_model.py --event_rem_method VA -model gpt2 -gpu 0 --normalization normalize --contextlen 1024 --input_original path-to-data-dir-processed --input_anonimized path-to-data-dir-VA -output path-to-results-dir`
