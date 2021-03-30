@@ -13,19 +13,19 @@ def replace_event_in_sentence(sentence, spacy_model):
     def replace_verb_by_tag(token):
         if token.text in be_set:
             return "be"
-        elif token.tag_ == "MD": #助動詞
+        elif token.tag_ == "MD": 
             return token.text
-        elif token.tag_ == "VB": #不定詞, 動詞の原形
+        elif token.tag_ == "VB": 
             return "do"
-        elif token.tag_ == "VBD": #動詞の過去形
+        elif token.tag_ == "VBD": 
             return "did"
-        elif token.tag_ == "VBG": #動詞の現在分詞形
+        elif token.tag_ == "VBG": 
             return "doing"
-        elif token.tag_ == "VBN": #動詞の過去分詞形
+        elif token.tag_ == "VBN": 
             return "done"
-        elif token.tag_ == "VBP": #1/2人称，単数，現在形
+        elif token.tag_ == "VBP": 
             return "do"
-        elif token.tag_ == "VBZ": #3人称，単数，現在形
+        elif token.tag_ == "VBZ": 
             return "does"
         else:
             print("Unspecified Verb Type: {}".format(token.text))
@@ -74,7 +74,9 @@ def replace_event_in_sentence(sentence, spacy_model):
 def main(args):
     original_file_path_list = glob(os.path.normpath(args.input) + "/*")
     
-    os.mkdir(args.output)
+    if not os.path.exist(args.output):
+        os.mkdir(args.output)
+
     spacy_model = spacy.load("en_core_web_sm")
     
     output_file_path_list = []

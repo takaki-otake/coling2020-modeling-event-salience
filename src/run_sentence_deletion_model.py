@@ -134,11 +134,11 @@ def main(args):
 
 	logger.info('Preparing file path...')
 
-	original_file_path_list = glob(args.input + "*")
+	original_file_path_list = glob(os.path.normpath(args.input) + "/*")
 
 	dt_now = datetime.datetime.now()
 
-	new_dir_path = args.output + str(dt_now).replace(" ", "-") + "_SD_" + os.path.basename(args.model) + "_" + str(args.contextlen) + "_" + args.normalization + "_gpu_context_eot"
+	new_dir_path = os.path.normpath(args.output) + "/" + str(dt_now).replace(" ", "-") + "_SD_" + os.path.basename(args.model) + "_" + str(args.contextlen) + "_" + args.normalization + "_gpu_context_eot"
 
 	os.makedirs(new_dir_path)
 

@@ -154,14 +154,14 @@ def main(args):
 
 	logger.info('Preparing file path...')
 
-	original_file_path_list = glob(args.input_original + "*")
-	anonimized_file_path_list = glob(args.input_anonimized + "*")
+	original_file_path_list = glob(os.path.normpath(args.input_original) + "/*")
+	anonimized_file_path_list = glob(os.path.normpath(args.input_anonimized) + "/*")
 
 	#check file pair alignment
 	check_file_alignment(original_file_path_list, anonimized_file_path_list)
 
 	if args.event_rem_method == "VA" or args.event_rem_method == "PASA":
-		new_dir_path = args.output + str(dt_now).replace(" ", "-") + "_" + args.event_rem_method + "_" + os.path.basename(args.model) + "_" + args.input_original.split("/")[-2] + "_" + args.input_anonimized.split("/")[-2] + "_" + args.normalization + "_main_bug_modified_fix_seed_context_eot"
+		new_dir_path = os.path.normpath(args.output) + "/" + str(dt_now).replace(" ", "-") + "_" + args.event_rem_method + "_" + os.path.basename(args.model) + "_" + args.input_original.split("/")[-2] + "_" + args.input_anonimized.split("/")[-2] + "_" + args.normalization + "_main_bug_modified_fix_seed_context_eot"
 		os.makedirs(new_dir_path)
 
 		log_file_path = args.output + "logfile_" + str(dt_now).replace(" ", "-") + "_" + os.path.basename(args.model) + "_" + args.event_rem_method + "_" + args.input_original.split("/")[-2] + "_" + args.input_anonimized.split("/")[-2] + "_" + args.normalization + "_modified" + ".log"

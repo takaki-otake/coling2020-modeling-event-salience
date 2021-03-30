@@ -35,7 +35,8 @@ def main(args):
         document_inst.set_all_annotation_info()
         doc_list.append(document_inst)
     
-    os.mkdir(args.output)
+    if not os.path.exist(args.output):
+        os.mkdir(args.output)
     
     output_file_path_list = []
     for i in original_file_path_list:
@@ -76,13 +77,10 @@ def main(args):
                     current_token_id = token_id
                     token_inst = document_inst.tokens[token_id]
                     
-                    if args.event_rem_method == "PAA":
-                        if token_id in should_be_replaced_tokens_arg0:
-                            current_token_id = -1
-                        elif token_id in should_be_replaced_tokens_other:
-                            current_token_id = -8
-                        else:
-                            pass
+                    if token_id in should_be_replaced_tokens_arg0:
+                        current_token_id = -1
+                    elif token_id in should_be_replaced_tokens_other:
+                        current_token_id = -8
                     else:
                         pass
 
@@ -126,7 +124,6 @@ def main(args):
             
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--event_rem_method', '-e', type=str, help='event removal method (VA or PAA)', choices=["VA", "PAA"])
     parser.add_argument('--input', '-i', type=str, help='path to the directory which contains raw propplearner .xml files')
     parser.add_argument('--output', '-o', help='path to the directory for processed files')
     args = parser.parse_args()
