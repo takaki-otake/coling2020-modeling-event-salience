@@ -74,7 +74,7 @@ def replace_event_in_sentence(sentence, spacy_model):
 def main(args):
     original_file_path_list = glob(os.path.normpath(args.input) + "/*")
     
-    if not os.path.exist(args.output):
+    if not os.path.exists(args.output):
         os.mkdir(args.output)
 
     spacy_model = spacy.load("en_core_web_sm")

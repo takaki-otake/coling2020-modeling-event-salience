@@ -16,7 +16,7 @@ def main(args):
     
     original_file_path_list = glob(os.path.normpath(args.input) + "/*")
     
-    if not os.path.exist(args.output):
+    if not os.path.exists(args.output):
         os.mkdir(args.output)
     
     output_file_path_list = []
