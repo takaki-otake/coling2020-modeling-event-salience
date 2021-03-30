@@ -6,11 +6,12 @@ We used [the ProppLearner corpus](https://academic.oup.com/dsh/article/32/2/284/
 You can download the corpus [here](https://dspace.mit.edu/handle/1721.1/100054?show=full).
 
 ### Preprocessing the ProppLearner corpus
-```python src/preprocess_propplearner_with_pred_and_args.py  --input path-to-dir  --output path-to-dir```
+1. ```python src/preprocess_propplearner_with_pred_and_args.py  --input path-to-dir  --output path-to-dir```
 > `--input`: path to the directory which contains original .sty files in the corpus.
-- for Verb Anonymization (VA)
+    1. for Verb Anonymization (VA)
     - `python src/preprocess_propplearner_with_verbs.py --input path-to-dir --output path-to-dir`
-- for Predicate and Argument Anonymization (PAA)
+    - > `--input`: 
+    1. for Predicate and Argument Anonymization (PAA)
     - `python src/preprocess_propplearner.py --input path-to-dir --output path-to-dir`
 
 
