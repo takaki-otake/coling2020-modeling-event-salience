@@ -1,4 +1,3 @@
-
 import re
 import os
 import sys
@@ -76,11 +75,14 @@ def main(args):
                 for token_id in sentence_inst.tokens:
                     current_token_id = token_id
                     token_inst = document_inst.tokens[token_id]
-
-                    if token_id in should_be_replaced_tokens_arg0:
-                        current_token_id = -1
-                    elif token_id in should_be_replaced_tokens_other:
-                        current_token_id = -8
+                    
+                    if args.event_rem_method == "PAA":
+                        if token_id in should_be_replaced_tokens_arg0:
+                            current_token_id = -1
+                        elif token_id in should_be_replaced_tokens_other:
+                            current_token_id = -8
+                        else:
+                            pass
                     else:
                         pass
 
@@ -121,8 +123,10 @@ def main(args):
             print("0\t", end="", file=outfile)
             print("<|endoftext|>", end="", file=outfile)
 
+            
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument('--event_rem_method', '-e', type=str, help='event removal method (VA or PAA)', choices=["VA", "PAA"])
     parser.add_argument('--input', '-i', type=str, help='path to the directory which contains raw propplearner .xml files')
     parser.add_argument('--output', '-o', help='path to the directory for processed files')
     args = parser.parse_args()

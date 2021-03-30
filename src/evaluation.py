@@ -36,14 +36,10 @@ def calculate_MeanAP(input_path_list):
 	ap_score_list = []
 	spearman_corr_list = []
 
-	#df_list = []
-
 	for result_file_path in input_path_list:
-		#score, _, df = calculate_AP_for_storls y(result_file_path)
 		ap_score, spearman_corr = calculate_AP_for_story(result_file_path)
 		ap_score_list.append(ap_score)
 		spearman_corr_list.append(spearman_corr)
-		#df_list.append(df)
 
 	mean_AP = sum(ap_score_list) / len(ap_score_list)
 	mean_spearman_corr = sum(spearman_corr_list) / len(spearman_corr_list)
@@ -53,21 +49,18 @@ def calculate_MeanAP(input_path_list):
 
 def main(args):
 
-	input_path_list = glob(args.input + "*")
+	input_path_list = glob(os.path.normpath(args.input) + "/*")
 	print("Process {} files".format(len(input_path_list)))
-	#output_path_list = [args.output + "viz_" + os.path.basename(path).split(".")[0] + ".tsv" for path in input_path_list]
-
-	print("Evaluate from {} files".format(len(input_path_list)))
+	print("Evaluation results from {} files".format(len(input_path_list)))
 	print("Mean Average Precision (proposed): {}".format(calculate_MeanAP(input_path_list)[0]))
 	
-	print("Average score for label 1: {}".format(calculate_mean_score_diff(input_path_list)[0]))
-	print("Average score for label 0: {}".format(calculate_mean_score_diff(input_path_list)[1]))
+	#print("Average score for label 1: {}".format(calculate_mean_score_diff(input_path_list)[0]))
+	#print("Average score for label 0: {}".format(calculate_mean_score_diff(input_path_list)[1]))
 
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--input', '-i', type=str, help='directory path for inputfiles')
-	#parser.add_argument('--output', '-o', help='directory path for outputfiles')
 
 	args = parser.parse_args()
 	main(args)
