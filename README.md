@@ -30,18 +30,19 @@ You can download the corpus [here](https://dspace.mit.edu/handle/1721.1/100054?s
     - > `--gpu`: the number of gpu you use. `-1` for CPU.
 
 - Inference w/ Verb Anonymization (VA)
-    - `$ python src/run_sentence_anonymization_model.py --event_rem_method VA -model gpt2 -gpu 0 --normalization normalize --contextlen 1024 --input_original path-to-data-dir-processed --input_anonimized path-to-data-dir-VA -output path-to-results-dir`
+    - `$ python src/run_sentence_anonymization_model.py --event_rem_method VA --model gpt2 -gpu 0 --normalization normalize --contextlen 1024 --input_original path-to-data-dir-processed --input_anonimized path-to-data-dir-VA --output path-to-results-dir`
 
 - Inference w/ Predicate and Arguments Anonymization (PAA)
-    - `$ python src/run_sentence_anonymization_model.py --event_rem_method PAA -model gpt2 -gpu 0 --normalization normalize --contextlen 1024 --input_original path-to-data-dir-processed --input_anonimized path-to-data-dir-PAA -output path-to-results-dir`
+    - `$ python src/run_sentence_anonymization_model.py --event_rem_method PAA --model gpt2 --gpu 0 --normalization normalize --contextlen 1024 --input_original path-to-data-dir-processed --input_anonimized path-to-data-dir-PAA --output path-to-results-dir`
 
 - Evaluation
   - `$ python src/evaluation.py --input path-to-result-dir` 
 
 ### Using fine-tuned GPT-2
-For all proposed method (SD, VA, PAA), you can use fine-tuned GPT-2 by specifying the path for `-model` argument. For details about fine-tuning, see https://huggingface.co/transformers/v2.2.0/examples.html .
+For all proposed method (SD, VA, PAA), you can use fine-tuned GPT-2 by specifying the path for `--model` argument. For details about fine-tuning GPT-2, see https://huggingface.co/transformers/v2.2.0/examples.html#gpt-2-gpt-and-causal-language-modeling .
 
 ## Citation
+If you use our code for academic work, please cite:
 ```
 @inproceedings{otake-etal-2020-modeling,
     title = "Modeling Event Salience in Narratives via Barthes{'} Cardinal Functions",
